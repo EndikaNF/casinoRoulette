@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruleta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    <!-- 🎵 Elemento de audio oculto -->
+    <audio class="bgMusic" loop>
+      <source src="song/chillSong.mp3" type="audio/mp3">
+      Tu navegador no soporta audio HTML5.
+    </audio>
+    
+
+  <div class="header">
+    <span style="margin-right: 1vh">Saldo <span class="saldo" style="padding: 2vh;">5000 FUN</span></span>
+    <span>Apuesta total <span class="apuesta" style="padding: 2vh;"></span></span>
+    <span class="sonidoSettings" id="toggleMusic" title="Activar/Desactivar música">🔈</span>
+    <span class="bordeMaderaArriba">asdfsdfsdfa</span>
+  </div>
+
+  <div class="roulette-container">
+    <div class="contenedor">
+      <canvas id="ruleta" width="450" height="450"></canvas>
+
+    </div>
+
+    <div class="tables">
+      <div class="table-1">
+        <div class="left-table" id="left-table"></div>
+        <div class="table" id="table"></div>
+        <div class="right-table" id="right-table"></div>
+      </div>
+      <div class="table-2" id="table-2"></div>
+      <div class="table-3" id="table-3"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <!-- Este es el resultado adicional fijo abajo -->
+    <div id="resultado-abajo" class="resultado-abajo"></div>
+    <div id="resultado"></div>
+    <span class="bordeMaderaAbajo">asdfsdfsdfa</span>
+    <div class="Monedas" id="Monedas">
+    </div>
+    <div class="Botones" id="Botones">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="roullete.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
