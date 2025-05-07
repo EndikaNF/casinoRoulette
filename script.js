@@ -6,6 +6,7 @@ const sectBottomTable = document.getElementById('table-3');
 const monedasDiv = document.querySelector('.Monedas'); // Nueva referencia
 let celdasModificadas = []; // Array global para almacenar las celdas modificadas
 let celdaRepetirApuesta = []; // Array global para almacenar las celdas modificadas
+let totalARepetir = Number(0);
 
 let apuestaTotal = 0;
 
@@ -32,7 +33,6 @@ function activarBotones() {
     botones[i].disabled = false; // Activa todos los botones
   }
 }
-
 
 
 const redNumbers = new Set([1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36]);
@@ -202,7 +202,6 @@ function crearBotones() {
 // FUNCIONES
 // Repetir última apuesta
 function repetirApuesta() {
-  activarBotones()
 
   if (celdaRepetirApuesta.length === 0) {
     mostrarAlerta("No hay apuesta para repetir.");
@@ -210,7 +209,6 @@ function repetirApuesta() {
   }
 
   // Convertimos los valores y calculamos el total de lo que se va a apostar
-  let totalARepetir = Number(0);
   const apuestasValidas = [];
 
   for (const { seccion, numero } of celdaRepetirApuesta) {
@@ -275,9 +273,9 @@ function repetirApuesta() {
     let b = a + valor; // o + totalARepetir si solo quieres mostrar lo repetido
 
     document.getElementsByClassName('apuesta')[0].textContent = b + " FUN";    
+    activarBotones()
   }
 
-  mostrarAlerta("Apuesta repetida.");
   // Actualiza el texto de la apuesta total
     const apuesta = document.querySelector('.apuesta');
     if (apuesta) apuesta.textContent = b + ' FUN';
@@ -319,6 +317,8 @@ function deshacerUltimaApuesta() {
 // Girar la ruleta
 function girarRuleta() {
   historialApuestas = []; // Reiniciamos historial para la próxima ronda
+  apuestaTotal = 0;
+
 
   // Limpiar el total de la apuesta después de girar
   actualizarApuestaEnDOM();
@@ -327,6 +327,7 @@ function girarRuleta() {
   desactivarBotones();
   guardarApuestasDesdeMesa();
   reiniciarCeldas();
+  console.log(apuestaTotal);
 }
 
 
@@ -759,9 +760,9 @@ function desactivarMonedas() {
 window.addEventListener('load', () => {
   // Array con los enlaces de las canciones
   const canciones = [
-    "song/chillSong_1.mp3",
-    "song/chillSong_2.mp3",
-    "song/chillSong_3.mp3"
+    "https://raw.githubusercontent.com/EndikaNF/casinoRoulette/10d8f0ad28ef3b0bbd5443251de2100980444892/chillSong_1.mp3",
+    "https://raw.githubusercontent.com/EndikaNF/casinoRoulette/10d8f0ad28ef3b0bbd5443251de2100980444892/chillSong_2.mp3",
+    "https://raw.githubusercontent.com/EndikaNF/casinoRoulette/10d8f0ad28ef3b0bbd5443251de2100980444892/chillSong_3.mp3"
   ];
 
   // Selecciona una canción aleatoria del array
@@ -816,3 +817,4 @@ window.addEventListener('load', () => {
     });
   }
 });
+
