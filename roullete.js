@@ -403,8 +403,8 @@ function evaluarGanancias(apuestas, numeroGanador, colorGanador) {
 
     switch (true) {
       case !isNaN(seccion):
-        console.log("🔢 Tipo: Número directo");
-        if (seccion === numeroGanador) {
+        console.log("🔢 Tipo: Número directo"); 
+        if (seccion == numeroGanador.toString()) {
           totalGanado += valor * 36;
           console.log(`✅ Apuesta NUMERO ${seccion}: ganaste ${valor * 36}`);
           gano = true;
